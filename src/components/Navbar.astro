@@ -1,0 +1,47 @@
+<header class="before:bg-red desktop:before:w-[60%] tablet:before:hidden relative pb-[72px] pt-[76px] before:absolute before:right-0 before:top-0 before:z-[-1] before:h-full before:w-[49.2%]">
+  <div class="container flex justify-between leading-[26px]">
+    <a href="#">
+      <img src="/assets/logo.svg" alt="creative logo" width="161" height="30" />
+    </a>
+    <ul class="tablet:hidden flex text-white">
+      <li><a href="/" class="mr-[34px]">About</a></li>
+      <li><a href="/" class="mr-[32px]">Service</a></li>
+      <li><a href="/" class="mr-[49px]">Projects</a></li>
+      <li>
+        <a href="/" class="hover:bg-pale-blue bg-dark-blue px-[45px] py-[23px] font-black text-white duration-300">Schedule a Call </a>
+      </li>
+    </ul>
+    <button class="tablet:block hidden" aria-label="menu toggle" id="menu">
+      <img src="/assets/icon-hamburger.svg" alt="" aria-hidden="true" id="hamburger" />
+      <img src="/assets/icon-close.svg" alt="" aria-hidden="true" class="hidden" id="close" />
+    </button>
+  </div>
+
+  <ul class="bg-dark-blue tablet:block absolute right-[20px] top-[120px] z-10 hidden w-full max-w-[350px] space-y-[24px] px-[20px] py-[30px] text-center text-white opacity-0 duration-300" id="menu-responsive">
+    <li><a href="/">About</a></li>
+    <li><a href="/">Service</a></li>
+    <li><a href="/">Projects</a></li>
+    <a href="/" class="hover:bg-pale-red bg-red inline-block w-full px-[20px] py-[23px] font-black text-white duration-300">Schedule a Call </a>
+  </ul>
+</header>
+
+<script>
+  const menuToggle = document.getElementById("menu");
+  const hamburgerIcon = document.getElementById("hamburger");
+  const closeIcon = document.getElementById("close");
+  const menuResponsive = document.getElementById("menu-responsive");
+
+  let isOpen = false
+
+  function toggleClass(element, className) {
+    element.classList.toggle(className);
+  }
+
+  menuToggle.addEventListener("click", () => {
+    toggleClass(hamburgerIcon, "hidden");
+    toggleClass(closeIcon, "hidden");
+    toggleClass(menuResponsive, "opacity-0");
+    isOpen = !isOpen;
+    menuToggle.setAttribute("aria-label", isOpen ? "close menu" : "open menu");
+  });
+</script>

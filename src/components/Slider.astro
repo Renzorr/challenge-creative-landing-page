@@ -1,0 +1,83 @@
+<section class="desktop:h-[560px] tablet:h-auto tablet:flex tablet:flex-col-reverse relative h-[730px]">
+  <div class="bg-dark-blue desktop:pt-[90px] desktop:pb-[90px] tablet:w-full relative flex w-[50.8%] justify-end pb-[155px] pl-[20px] pt-[155px] text-white">
+    <div class="tablet:max-w-none w-full max-w-[570px] pr-[30px]" id="view-appear-in">
+      <h3 class="mobile:text-[36px] mobile:leading-none mobile:text-pretty text-xl font-bold leading-[63px]" id="slide-title">Brand naming & guidelines</h3>
+      <div class="mt-[55px] flex items-center gap-4">
+        <button aria-label="previous slider button" id="previous-btn"><img src="/assets/icon-arrow-previous.svg" loading="lazy" alt="" aria-hidden="true" /></button>
+        <button aria-label="next slider button" id="next-btn"><img src="/assets/icon-arrow-next.svg" loading="lazy" alt="" aria-hidden="true" /></button>
+      </div>
+    </div>
+    <img src="/assets/bg-pattern-white.svg" loading="lazy" alt="" aria-hidden="true" class="desktop:w-[80px] desktop:right-[-6%] tablet:hidden absolute right-[-7%] top-[35%]" id="pattern"/>
+  </div>
+
+  <div class="tablet:static tablet:w-full absolute right-0 top-0 z-[-1] h-full w-[59.2%] bg-dark-blue">
+    <div class="h-full" id="view-clip">
+      <div class="before:bg-gradient relative h-full before:absolute before:bottom-0 before:left-0 before:h-[35%] before:w-full">
+        <img src="/assets/desktop/image-slide-1.webp" loading="lazy" alt="" class="h-full w-full object-cover" id="slide-image" />
+        <aside class="absolute bottom-[10%] right-[10%] space-y-2 text-end text-white">
+          <span class="text-md font-bold" id="slide-project">Learn Product Roadmap</span>
+          <p id="slide-date">2019 Project</p>
+        </aside>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const slideTitle = document.getElementById("slide-title");
+  const slideImage = document.getElementById("slide-image");
+  const slideProject = document.getElementById("slide-project");
+  const slideDate = document.getElementById("slide-date");
+  const nextBtn = document.getElementById("next-btn");
+  const previousBtn = document.getElementById("previous-btn");
+
+  let slideIndex = 0;
+  let totalSlides = 3;
+
+  const slideContent = [
+    {
+      title: "Brand naming & guidelines",
+      project: "Learn Product Roadmap",
+      date: "2019 Project",
+    },
+    {
+      title: "Brand identity & web design",
+      project: "New Majestic Hotel",
+      date: "2018 Project",
+    },
+    {
+      title: "Brand identity & merchandise",
+      project: "Crypto Dashboard",
+      date: "2016 Project",
+    },
+  ];
+
+  function previousSlide() {
+    if (slideIndex == 0) return;
+    slideIndex--;
+  
+    slideChanges(slideIndex);
+  }
+
+  function nextSlide() {
+    if (slideIndex == totalSlides - 1) return
+    slideIndex++;
+
+    slideChanges(slideIndex);
+  }
+
+  function updateContent(element, content){
+    element.textContent = content;
+  }
+
+  function slideChanges(slideIndex) {
+    const {title, project , date } =  slideContent[slideIndex];
+    updateContent(slideTitle, title)
+    updateContent(slideProject, project)
+    updateContent(slideDate, date)
+    slideImage.src = `/assets/desktop/image-slide-${slideIndex + 1}.webp`;
+  }
+
+  nextBtn.addEventListener("click", nextSlide);
+  previousBtn.addEventListener("click", previousSlide);
+</script>

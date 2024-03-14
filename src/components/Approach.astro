@@ -1,0 +1,38 @@
+---
+const data = [
+  {
+    id: 1,
+    title: "Brand Strategy",
+    content:
+      "Brand strategy is critical for long-term success. Outshining competitors and capturing the target audience are key."
+  },
+  {
+    id: 2,
+    title: "Brand Design",
+    content:
+      "Keeping the brand design unique and meaningful helps in communicating the brand’s timeless value effectively."
+  },
+  {
+    id: 3,
+    title: "Web Design",
+    content:
+      "A beautifully crafted website is the best tool for brand awareness, and ultimately results in increased revenues."
+  }
+];
+---
+
+<section class="desktop:pb-[400px] tablet:py-0 relative pb-[506px] pt-[200px]">
+  <div class="container">
+    <h2 class="desktop:max-w-[400px] desktop:leading-none tablet:hidden relative z-10 w-full max-w-[500px] text-xl font-bold leading-[64px]" id="view-fade-up">Our approach for creating a winning brand</h2>
+  </div>
+  <div class="bg-red desktop:pb-[120px] desktop:pt-[50px] desktop:pl-[150px] tablet:static tablet:w-full tablet:h-full tablet:px-[30px] absolute bottom-0 right-0 z-0 w-[59%] space-y-[101px] pb-[200px] pl-[338px] pr-[50px] pt-[140px]">
+    <h2 class="tablet:block tablet:text-pretty tablet:text-xl tablet:font-bold tablet:text-white hidden" id="view-fade-up">Our approach for creating a winning brand</h2>
+    { data.map((d) => { return (
+    <article class="desktop:max-w-none relative w-full max-w-[430px] text-white" id="view-appear-in">
+      <span class="tablet:left-0 tablet:top-[-25%] absolute left-[-12.5%] top-[-40%] text-2xl font-bold opacity-30"> 0{d.id} </span>
+      <h3 class="text-lg font-bold">{d.title}</h3>
+      <p class="text-md mt-[25px] leading-[32px] opacity-85">{d.content}</p>
+    </article>
+    ); }) }
+  </div>
+</section>

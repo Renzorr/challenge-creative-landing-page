@@ -1,0 +1,75 @@
+/* FONTS */
+@font-face {
+  font-family: "Commissioner";
+  src: url(/fonts/Commissioner-Regular.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "Commissioner";
+  src: url(/fonts/Commissioner-ExtraBold.woff2) format("woff2");
+  font-weight: 800;
+}
+
+/* ANIMATIONS */
+@media (prefers-reduced-motion: no-preference) {
+  #pattern {
+    animation: rotate linear forwards;
+    animation-timeline: view();
+    animation-range: 500px;
+  }
+  @keyframes rotate {
+    to {
+      rotate: 10deg;
+    }
+  }
+
+  #fade-up {
+    transform: translateY(50%);
+    opacity: 0;
+    animation: fade-up 0.6s ease forwards;
+  }
+  @keyframes fade-up {
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  #view-fade-up {
+    transform: translateY(40%);
+    opacity: 0;
+    animation: view-fade-up linear forwards;
+    animation-timeline: view();
+    animation-range: 20px 500px;
+  }
+  @keyframes view-fade-up {
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  #view-appear-in {
+    opacity: 0;
+    animation: appear-in linear forwards;
+    animation-timeline: view();
+    animation-range: 40px 300px;
+  }
+  @keyframes appear-in {
+    to {
+      opacity: 1;
+    }
+  }
+
+  #view-clip {
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    animation: clip ease-in forwards;
+    animation-timeline: view();
+    animation-range: 40px 650px;
+  }
+  @keyframes clip {
+    to {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+  }
+}
